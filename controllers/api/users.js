@@ -15,6 +15,7 @@ async function create(req, res) {
         const token = createJWT(user);
         res.json(token);
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 }
