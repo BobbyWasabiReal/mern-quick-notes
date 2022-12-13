@@ -1,3 +1,3 @@
 # MERN Quick Notes
 
-Make quick notes. (that's all there is to it).
+Make quick notes. (That's all there is to it).
