@@ -3,6 +3,7 @@ export default function NoteCardItem({ myNote }) {
         <div className="MyNoteCardItem">
             <h3 className="MyNoteCardItem-title">{myNote.title}</h3>
             <p className="MyNoteCardItem-content">{myNote.content}</p>
+            <p className="MyNoteCardItem-content">{myNote.createdAt.toLocaleString()}</p>
         </div>
     );
 }

@@ -15,7 +15,7 @@ export default function NoteCard({ user }) {
 
     return (
         <>
-            { myNotes.length > 0 ?
+            { myNotes.length ?
                 <div className="noteCard">
                     <NoteCardList myNotes={myNotes.filter(note => note.user === user._id)} />
                 </div>
