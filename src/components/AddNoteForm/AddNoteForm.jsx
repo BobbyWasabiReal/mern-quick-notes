@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-export default function AddNoteForm({ user, setNote, note }) {
+export default function AddNoteForm({ user, addNote }) {
     const [formData, setFormData] = useState({
         title: '',
         content: '',
-        user: user._id
     });
 
     function handleChange(evt) {
@@ -16,8 +15,11 @@ export default function AddNoteForm({ user, setNote, note }) {
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        setNote(formData);
-        console.log(formData);
+        addNote(formData);
+        setFormData({
+            title: '',
+            content: '',
+        });
     }
 
     return (

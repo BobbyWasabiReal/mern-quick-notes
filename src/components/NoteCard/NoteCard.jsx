@@ -1,9 +1,27 @@
-export default function NoteCard({ note, handleDeleteNote }) {
+import { useState, useEffect } from 'react';
+import * as notesAPI from '../../utilities/notes-api';
+import NoteCardList from '../NoteCardList/NoteCardList';
+
+export default function NoteCard({ user }) {
+    const [myNotes, setMyNotes] = useState([]);
+
+    useEffect(function () {
+        async function getNotes() {
+            const notes = await notesAPI.getAll();
+            setMyNotes(notes);
+        }
+        getNotes();
+    }, [])
+
     return (
-        <div className="NoteCard">
-            {/* <h3>{note.title}</h3> */}
-            {/* <p>{note.content}</p> */}
-            {/* <button onClick={() => handleDeleteNote(note._id)}>Delete</button> */}
-        </div>
+        <>
+            { myNotes.length > 0 ?
+                <div className="noteCard">
+                    <NoteCardList myNotes={myNotes.filter(note => note.user === user._id)} />
+                </div>
+                :
+                <h2>No Notes Yet... :(</h2>
+            }
+        </>
     );
 }
